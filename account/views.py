@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 def signup(request):
     '''
@@ -15,7 +16,8 @@ def signup(request):
                 return render(request, 'account/signup.html', context)
             except User.DoesNotExist:
 
-                User.objects.create_user(request.POST['username'], request.POST['email'], password=request.POST['password'])
+                user = User.objects.create_user(request.POST['username'], request.POST['email'], password=request.POST['password'])
+                login(request, user)
                 return render(request, 'account/signup.html')
         else:
             context = {'error': 'Passwords didn\'t match. Please try again.'}
