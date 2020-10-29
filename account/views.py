@@ -24,3 +24,20 @@ def signup(request):
             return render(request, 'account/signup.html', context)
     else:
         return render(request, 'account/signup.html')
+
+
+def user_login(request):
+    '''
+    Renders view where users log into their account: 
+    '''
+    if request.method == 'POST':
+        user = authenticate(username=request.POST['username'], password=request.POST['password'])
+        if user is not None:
+            login(request, user)
+            context = {'message': 'Welcome!'}
+            return render(request, 'account/login.html', context)
+        else:
+            context = {'error': 'Username or password didn\'t match. Please try again.'}
+            return render(request, 'account/login.html', context)
+    else:
+        return render(request, 'account/login.html')
