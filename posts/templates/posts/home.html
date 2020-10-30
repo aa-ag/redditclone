@@ -2,8 +2,6 @@
 
 {% block content %}
 
-<h3>Home page</h3>
-
 <a href="{% url 'posts:create' %}" class="btn btn-primary">New Post</a>
 
 {% for post in posts.all %}
