@@ -33,3 +33,25 @@ def home(request):
     posts = models.Post.objects.order_by('votes_total')
     context = {'posts': posts}
     return render(request, 'posts/home.html', context)
+
+
+def upvote(request, pk):
+    '''
+    View to increase total votes
+    '''
+    if request.method == 'POST':
+        post = models.Post.objects.get(pk=pk)
+        post.votes_total += 1
+        post.save()
+        return redirect('home')
+
+
+def downvote(request, pk):
+    '''
+    View to decrease total votes
+    '''
+    if request.method == 'POST':
+        post = models.Post.objects.get(pk=pk)
+        post.votes_total -= 1
+        post.save()
+        return redirect('home')
