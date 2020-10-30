@@ -27,7 +27,7 @@
             <span>{{ post.votes_total }}</span>
             
             <a href="{{ post.url }}" target="_blank">{{ post.title}}</a>
-            <span>{{ post.pub_date }}</span>
+            <small>{{ post.ago }}</small>
             <span>by <a href="{% url 'posts:userposts' post.author.id %}" >{{ post.author }}</a></span>
         </li>
     </ul>
