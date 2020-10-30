@@ -31,7 +31,7 @@
         
         <a href="{{ post.url }}" target="_blank">{{ post.title}}</a>
         <span>{{ post.pub_date }}</span>
-        <span>by {{ post.author }}</span>
+        <span>by <a href="{% url 'posts:userposts' post.author.id %}" >{{ post.author }}</a></span>
     </li>
 </ul>
 
