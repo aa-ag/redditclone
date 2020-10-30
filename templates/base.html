@@ -1,8 +1,50 @@
-NAVBAR
-<br>
-<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>{% block title %}Django Reddit Clone{% endblock %}</title>
+</head>
+<body>
 
-{% block content %}
-{% endblock %}
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="{% url 'home' %}" >
+			<img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+			reddit clone
+		</a>
+		<form class="form-inline">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+		</form>
 
-FOOTER
+		{% if user.is_authenticated %}
+		<a class="btn btn-primary" href="#" role="button" onclick="document.getElementById('logout').submit()">LOG OUT</a>
+		
+		<form method="POST" action="{% url 'account:user_logout' %}" id="logout">
+			{% csrf_token %}
+			<input type="hidden">
+		</form>
+
+		{% else %}
+		<a class="btn btn-primary" href="{% url 'account:user_login' %}" role="button">LOG IN</a>
+		<a class="btn btn-primary" href="{% url 'account:signup' %}" role="button">SING UP</a>
+		{% endif %}
+
+	</nav>
+
+	<div class="container">
+		{% block content %}
+		{% endblock %}
+	</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
 
 def signup(request):
     '''
@@ -36,8 +38,20 @@ def user_login(request):
             login(request, user)
             if 'next' in request.POST:
                 return redirect(request.POST['next'])
+            return redirect('home')
         else:
             context = {'error': 'Username or password didn\'t match. Please try again.'}
             return render(request, 'account/login.html', context)
     else:
         return render(request, 'account/login.html')
+
+
+@login_required(login_url='/account/login/')
+def user_logout(request):
+    '''
+    Logs users out
+    '''
+    if request.method == 'POST':
+        logout(request)
+        return redirect('home')
+

@@ -11,18 +11,17 @@
     {{ message }}
 {% endif %}
 
-<div>
-    <form method="POST" action="{% url 'account:user_login' %}">
-        {% csrf_token %}
 
-        {% if request.GET.next %}
-        <input type="hidden" name="next" value="{{ request.GET.next }}">
-        {% endif %}
-        
-        <input type="text" name="username" placeholder="Enter your username" required>
-        <input type="password" name="password" placeholder="Enter your password" required>
-        <input type="submit" value="Log in">
-    </form>
-</div>
+<form method="POST" action="{% url 'account:user_login' %}">
+    {% csrf_token %}
+
+    {% if request.GET.next %}
+    <input type="hidden" name="next" value="{{ request.GET.next }}">
+    {% endif %}
+    
+    <input type="text" name="username" placeholder="Enter your username" required>
+    <input type="password" name="password" placeholder="Enter your password" required>
+    <input type="submit" value="Log in">
+</form>
 
 {% endblock %}

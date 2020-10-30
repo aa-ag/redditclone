@@ -35,6 +35,7 @@ def home(request):
     return render(request, 'posts/home.html', context)
 
 
+@login_required(login_url='/account/login/')
 def upvote(request, pk):
     '''
     View to increase total votes
@@ -46,6 +47,7 @@ def upvote(request, pk):
         return redirect('home')
 
 
+@login_required(login_url='/account/login/')
 def downvote(request, pk):
     '''
     View to decrease total votes
