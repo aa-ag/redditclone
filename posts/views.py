@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from . import models
@@ -6,6 +6,9 @@ from . import models
 
 @login_required(login_url='/account/login/')
 def create(request):
+    '''
+    View from home to create posts
+    '''
     if request.method == 'POST':
         if request.POST['title'] and request.POST['url']:
             # TO DO: validate URL's / regex
@@ -15,7 +18,7 @@ def create(request):
             post.pub_date = timezone.datetime.now()
             post.author = request.user
             post.save()
-            return render(request, 'posts/home.html')
+            return redirect('home')
         else:
             context = {'error': 'You must include a title AND a URL ;)'}
             return render(request, 'posts/create.html', context)
@@ -24,4 +27,9 @@ def create(request):
 
 
 def home(request):
-    return render(request, 'posts/home.html')
+    '''
+    Home view for logged-in users
+    '''
+    posts = models.Post.objects.order_by('votes_total')
+    context = {'posts': posts}
+    return render(request, 'posts/home.html', context)

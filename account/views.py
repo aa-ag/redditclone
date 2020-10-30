@@ -16,6 +16,7 @@ def signup(request):
                 return render(request, 'account/signup.html', context)
             except User.DoesNotExist:
                 user = User.objects.create_user(request.POST['username'], request.POST['email'], password=request.POST['password'])
+                # TO DO: validate email / regex
                 login(request, user)
                 return render(request, 'account/signup.html')
         else:
