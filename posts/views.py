@@ -30,7 +30,7 @@ def home(request):
     '''
     Home view for logged-in users
     '''
-    posts = models.Post.objects.order_by('votes_total')
+    posts = models.Post.objects.order_by('-votes_total')
     context = {'posts': posts}
     return render(request, 'posts/home.html', context)
 

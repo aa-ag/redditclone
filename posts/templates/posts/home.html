@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <h3>Home page</h3>
 
 <a href="{% url 'posts:create' %}">New Post</a>
@@ -26,3 +30,5 @@
 </ul>
 
 {% endfor %}
+
+{% endblock %}
