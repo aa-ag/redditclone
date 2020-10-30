@@ -18,6 +18,24 @@ class Post(models.Model):
 
         time_diff = now - self.pub_date
 
+        if time_diff.days == 0 and time_diff.seconds >= 0 and time_diff.seconds < 60:
+            seconds= time_diff.seconds
+            
+            if seconds == 1:
+                return str(seconds) +  "second ago"
+            
+            else:
+                return str(seconds) + " seconds ago"
+
+        if time_diff.days == 0 and time_diff.seconds >= 60 and time_diff.seconds < 3600:
+            minutes= math.floor(time_diff.seconds/60)
+
+            if minutes == 1:
+                return str(minutes) + " minute ago"
+            
+            else:
+                return str(minutes) + " minutes ago"
+
         if time_diff.days == 0:
             hours = math.floor(time_diff.seconds/3600)
 
