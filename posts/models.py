@@ -7,3 +7,5 @@ class Post(models.Model):
     pub_date = models.DateTimeField()
     votes_total = models.IntegerField(default=0)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    # TO DO: convert pub_date to "X hours ago"
