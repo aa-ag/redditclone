@@ -4,8 +4,8 @@
 
 <div class="row col-12">
     <div class="card col-8">
-        <div>
-            <a href="{% url 'posts:create' %}" class="btn btn-dark" id="newpost">new post</a>
+        <div id="newpostbtn">
+            <a href="{% url 'posts:create' %}" class="btn btn-dark">new post</a>
         </div>
 
         {% for post in posts.all %}

@@ -50,6 +50,11 @@ body {
     background-color: rgba(218, 218, 218, 0.749);
 }
 
+#newpostbtn {
+    margin-top: 10px;
+    margin-left: 2vw;
+}
+
 .single_post {
     margin: 10px;
     margin-left: 2vw;
@@ -61,4 +66,8 @@ body {
 
 #newpost {
     margin-left: 2vw;
+}
+
+.card > img {
+    margin-top: 10px;
 }
