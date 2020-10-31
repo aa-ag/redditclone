@@ -2,35 +2,46 @@
 
 {% block content %}
 
-<a href="{% url 'posts:create' %}" class="btn btn-dark" id="newpost">new post</a>
+<div class="row col-12">
+    <div class="card col-8">
+        <div>
+            <a href="{% url 'posts:create' %}" class="btn btn-dark" id="newpost">new post</a>
+        </div>
 
-{% for post in posts.all %}
+        {% for post in posts.all %}
+        <div class="single_post">
+            <ul style="list-style-type:none;">
+                <li>
+                    <!-- TO DO: maybe add JS to make voting more performant -->
 
-<div class="single_post">
-    <ul style="list-style-type:none;">
-        <li>
+                    <form method="POST" action="{% url 'posts:upvote' post.id %}">
+                        {% csrf_token %}
+                        <input class="btn btn-light" type="submit" value="&#9650;">
+                    </form>
+                    
+                    <form method="POST" action="{% url 'posts:downvote' post.id %}">
+                        {% csrf_token %}
+                        <input class="btn btn-light" type="submit" value="&#9660;">
+                    </form>
 
-            <!-- TO DO: maybe add JS to make voting more performant -->
+                    <span>{{ post.votes_total }}</span>
+                    
+                    <a href="{{ post.url }}" target="_blank">{{ post.title}}</a>
+                    <small>{{ post.ago }}</small>
+                    <span>by <a href="{% url 'posts:userposts' post.author.id %}" >{{ post.author }}</a></span>
+                </li>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
 
-            <form method="POST" action="{% url 'posts:upvote' post.id %}">
-                {% csrf_token %}
-                <input class="btn btn-light" type="submit" value="&#9650;">
-            </form>
-            
-            <form method="POST" action="{% url 'posts:downvote' post.id %}">
-                {% csrf_token %}
-                <input class="btn btn-light" type="submit" value="&#9660;">
-            </form>
-
-            <span>{{ post.votes_total }}</span>
-            
-            <a href="{{ post.url }}" target="_blank">{{ post.title}}</a>
-            <small>{{ post.ago }}</small>
-            <span>by <a href="{% url 'posts:userposts' post.author.id %}" >{{ post.author }}</a></span>
-        </li>
-    </ul>
+    <div class="card col-4">
+        <img class="card-img-top" src="https://images.pexels.com/photos/20787/pexels-photo.jpg?cs=srgb&dl=adorable-animal-cat-20787.jpg&fm=jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>
 </div>
-
-{% endfor %}
 
 {% endblock %}
