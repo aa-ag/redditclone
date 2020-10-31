@@ -22,3 +22,8 @@ body {
 #newpost {
     margin-left: 2vw;
 }
+
+.dark-mode {
+    background-color: rgb(1, 1, 1);
+    color: #ffffff;
+}
