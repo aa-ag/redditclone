@@ -3,12 +3,20 @@
 }
 
 /* Navbar */
+
+.navbar-brand {
+    color: rgb(0, 0, 0);
+}
+
 nav {
     margin-bottom: 10px;
+    background-color: #ffffff;
 }
 
 .searchbox .form-control {
     padding-left: 2.375rem;
+    width: 55vw;
+    background-color: rgba(245, 245, 245, 0.94);
   }
   
 .searchbox .form-control-feedback {
@@ -23,9 +31,17 @@ nav {
     color: #aaa;
 }
 
+.btn {
+    margin: 1.5px;
+}
+
+#navbtnlogin {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 136, 255);
+}
+
 .dark-mode {
     background-color: rgb(1, 1, 1);
-    color: #ffffff;
 }
 
 /* Body */

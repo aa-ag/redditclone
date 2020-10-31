@@ -13,12 +13,12 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+	<nav class="navbar navbar-expand-lg sticky-top" style="background-color: #ffffff;">
 		<a class="navbar-brand" href="{% url 'home' %}" >
 			<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.redd.it%2Frq36kl1xjxr01.png&f=1&nofb=1" width="30" height="30" class="d-inline-block align-top" alt="">
 			reddit clone
 		</a>
-		<form class="inputgroup searchbox">
+		<form class="inputgroup searchbox mx-auto">
 			<span class="fa fa-search form-control-feedback"></span>
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 		</form>
@@ -32,12 +32,12 @@
 		</form>
 
 		{% else %}
-		<a class="btn btn-primary ml-auto" href="{% url 'account:user_login' %}" role="button" id="navbtn">LOG IN</a>
-		<a class="btn btn-primary" href="{% url 'account:signup' %}" role="button" id="navbtn">SING UP</a>
+		<a class="btn btn-primary ml-auto" href="{% url 'account:user_login' %}" role="button" id="navbtnlogin">LOG IN</a>
+		<a class="btn btn-primary" href="{% url 'account:signup' %}" role="button" id="navbtnsignup">SING UP</a>
 		{% endif %}
 
 		<div class="dropleft">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				.
 			</button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
