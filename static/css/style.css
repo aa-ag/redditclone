@@ -7,6 +7,27 @@ nav {
     margin-bottom: 10px;
 }
 
+.searchbox .form-control {
+    padding-left: 2.375rem;
+  }
+  
+.searchbox .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.dark-mode {
+    background-color: rgb(1, 1, 1);
+    color: #ffffff;
+}
+
 /* Body */
 
 body {
@@ -24,9 +45,4 @@ body {
 
 #newpost {
     margin-left: 2vw;
-}
-
-.dark-mode {
-    background-color: rgb(1, 1, 1);
-    color: #ffffff;
 }
