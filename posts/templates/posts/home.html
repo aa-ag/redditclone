@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<a href="{% url 'posts:create' %}" class="btn btn-primary">New Post</a>
+<a href="{% url 'posts:create' %}" class="btn btn-dark" id="newpost">new post</a>
 
 {% for post in posts.all %}
 

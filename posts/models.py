@@ -45,7 +45,7 @@ class Post(models.Model):
                 return f"posted {str(hours)} hours ago"
         if time_diff.days >= 1 and time_diff.days < 30:
             d = time_diff.days
-            if time_diff.d == 1:
+            if time_diff.days == 1:
                 return "posted yesterday"
             else:
                 return f"posted {str(d)} days ago"
