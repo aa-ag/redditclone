@@ -71,3 +71,10 @@ body {
 .card > img {
     margin-top: 10px;
 }
+
+#inputbox {
+    border-radius: 6px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid rgb(206, 206, 206);
+}

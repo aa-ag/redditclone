@@ -10,7 +10,7 @@
         {{ message }}
     {% endif %}
 
-    <div class="col-5">
+    <div class="col-5" id="inputbox">
         <form method="POST" action="{% url 'account:user_login' %}">
             {% csrf_token %}
 

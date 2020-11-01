@@ -6,7 +6,7 @@
         {{ error }}
     {% endif %}
 
-    <div class="col-5">
+    <div class="col-5" id="inputbox">
         <form method="POST" action="{% url 'account:signup' %}">
             {% csrf_token %}
             <input type="text" name="username" class="form-control" placeholder="Enter your username" required>
