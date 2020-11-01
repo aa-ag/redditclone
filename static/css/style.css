@@ -78,3 +78,8 @@ body {
     background-color: #ffffff;
     border: 1px solid rgb(206, 206, 206);
 }
+
+#side {
+    margin-left: 30px;
+    max-height: 400px;
+}
