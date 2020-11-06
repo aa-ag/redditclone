@@ -11,7 +11,7 @@
 nav {
     margin-bottom: 10px;
     background-color: #ffffff;
-    max-height: 7.5vh;
+    max-height: 8.5vh;
 }
 
 .searchbox .form-control {
@@ -84,4 +84,12 @@ body {
 #side {
     margin-left: 30px;
     max-height: 400px;
+}
+
+thead {
+    background-color: #dbdbdb8c;
+}
+
+#title {
+    color: rgb(0, 15, 82);
 }
