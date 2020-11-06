@@ -10,27 +10,31 @@
 
         {% for post in posts.all %}
         <div class="single_post">
-            <ul style="list-style-type:none;">
-                <li>
-                    <!-- TO DO: maybe add JS to make voting more performant -->
-
-                    <form method="POST" action="{% url 'posts:upvote' post.id %}">
-                        {% csrf_token %}
-                        <input class="btn btn-light" type="submit" value="&#9650;">
-                    </form>
-                    
-                    <form method="POST" action="{% url 'posts:downvote' post.id %}">
-                        {% csrf_token %}
-                        <input class="btn btn-light" type="submit" value="&#9660;">
-                    </form>
-
-                    <span>{{ post.votes_total }}</span>
-                    
-                    <a href="{{ post.url }}" target="_blank">{{ post.title}}</a>
-                    <small>{{ post.ago }}</small>
-                    <span>by <a href="{% url 'posts:userposts' post.author.id %}" >{{ post.author }}</a></span>
-                </li>
-            </ul>
+            <table class="table">
+                <thead>
+                     <tr>
+                     <th><span>{{ post.votes_total }}</span></th>
+                     <th><a href="{{ post.url }}" target="_blank">{{ post.title}}</a></th>
+                     <th><small>{{ post.ago }}</small></th>
+                     </tr>
+                </thead>
+                <tbody>
+                     <tr>
+                     <td>
+                     <form method="POST" action="{% url 'posts:upvote' post.id %}">
+                          {% csrf_token %}
+                          <input class="btn btn-light" type="submit" value="&#9650;">
+                     </form>
+                     </td>
+                     <td>
+                     <form method="POST" action="{% url 'posts:downvote' post.id %}">
+                          {% csrf_token %}
+                          <input class="btn btn-light" type="submit" value="&#9660;">
+                     </form>
+                     </td>
+                     </tr>
+                </tbody>
+           </table>
         </div>
         {% endfor %}
     </div>

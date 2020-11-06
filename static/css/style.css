@@ -59,6 +59,7 @@ body {
 .single_post {
     margin: 10px;
     margin-left: 2vw;
+    padding-top: 2vh;
     background-color: #ffffff;
     border: 1px solid rgb(206, 206, 206);
     border-radius: 6px;
